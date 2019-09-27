@@ -1,0 +1,24 @@
+{
+  "name": "liribot",
+  "version": "1.0.0",
+  "description": "search for movies, music, and concerts",
+  "main": "liri.js",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "node-spotify-api": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bloommax3/LIRIbot.git"
+  },
+  "author": "Max Bloom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bloommax3/LIRIbot/issues"
+  },
+  "homepage": "https://github.com/bloommax3/LIRIbot#readme"
+}
