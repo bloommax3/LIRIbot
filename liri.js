@@ -24,7 +24,17 @@ function movie(){
     axios.get("http://www.omdbapi.com/?t="+command+"&y=&plot=short&apikey=trilogy").then(
         function(response) {
         // Then we print out the response
-        console.log(JSON.stringify(response.data));
+        let temp = response.data
+        console.log("------------------------------------")
+        console.log("Title: "+temp.Title)
+        console.log("Starring: " +temp.Actors)
+        console.log("Release Year: "+ temp.Year)
+        console.log("Rating: "+temp.Rated)
+        console.log("Language: "+temp.Language)
+        console.log("Country: "+ temp.Country)
+        console.log("Rotten Tomatoes Score: "+temp.Ratings[1].Value)
+        console.log("Plot: "+temp.Plot)
+        console.log("------------------------------------")
     }
   );
 }
@@ -32,9 +42,15 @@ function movie(){
 function music(){
     var command = process.argv.slice(3).join(" ")
     spotify
-    .search({ type: 'track', query: command })
+    .search({ type: 'track', query: command, limit: 1 })
     .then(function(response) {
-      console.log(response.tracks.items);
+      let temp = response.tracks.items[0]
+      console.log("------------------------------------")
+      console.log("Song: "+ temp.name)
+      console.log("Artist: "+temp.artists[0].name)
+      console.log("Album: "+temp.album.name)
+      console.log("Preview Link: "+temp.preview_url)
+      console.log("------------------------------------")
     })
     .catch(function(err) {
       console.log(err);
