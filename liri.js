@@ -78,7 +78,18 @@ function music(){
 function concert(){
     let command = process.argv.slice(3).join("+")
     axios.get("https://rest.bandsintown.com/artists/" + command + "/events?app_id=codingbootcamp").then(function (response){
-        console.log(response)
+        var jsonData = response.data
+        if(!jsonData.length){
+            console.log("No results found for this artist")
+        }
+        else{
+            for(n=0; n<jsonData.length; n++){
+                let show=jsonData[n]
+                console.log("------------------------------------")
+                console.log(show.venue.city+", "+show.venue.region+" in "+show.venue.country + " at "+ show.venue.name+".")
+                console.log(moment(show.datetime).format("MM/DD/YY"))
+            }
+        }
     }).catch(function(err){
         console.log(err+"error")
     })
