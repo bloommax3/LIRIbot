@@ -96,7 +96,7 @@ function concert(){
 }
 
 function reader(){
-    fs.readFile("read-what-it-says.txt", "utf8", function(err, data){
+    fs.readFile("random.txt", "utf8", function(err, data){
         //Read the text file and save its contents in an array
         var splitData = data.split(" ")
         //Get the command
